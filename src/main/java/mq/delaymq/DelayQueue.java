@@ -45,6 +45,7 @@ public class DelayQueue<T> {
                 continue;
             }
 
+
             String s = set.iterator().next();
             if (jedis.zrem(queueName, s) > 0) {
                 TaskItem<T> task = JSON.parseObject(s, taskType);
